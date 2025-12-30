@@ -172,11 +172,6 @@
             "noise_offset": 0.0411
         },
         "6042ce99f9cde5c1a8acfc32dd1b3ba7ac4523aba281c1d9295e1a6d7b98a8e7": {
-            "max_train_epochs": 20,
-            "optimizer_args": [ "betas=(0.9, 0.999)", "weight_decay=1e-04", "eps=1e-08"],
-            "unet_lr": 2e-5,
-            "text_encoder_lr": 2e-6,
-            "noise_offset": 0.0357
         },
         "34a7aae44aeda3ba98eec73d818a4392a6226b9e00c223af02c105bda649268c": {
             "max_train_epochs": 22,
@@ -200,11 +195,6 @@
             "noise_offset": 0.0411
         },
         "7637327a8414801bf0bb4d6d1b574dd95c05525165ee271cc085b64f89c8cba8": {
-            "max_train_epochs": 22,
-            "optimizer_args": [ "betas=(0.9, 0.999)", "weight_decay=1e-03", "eps=1e-08"],
-            "unet_lr": 0.0000411,
-            "text_encoder_lr": 0.0000411,
-            "noise_offset": 0.0411
         },
         "ad7785f9ff51db0c7e07277f5f3cc474217158f242cc44a58581f56f28017c7d": {
             "max_train_epochs": 22,
