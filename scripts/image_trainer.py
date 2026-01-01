@@ -267,12 +267,18 @@ def create_config(task_id, model_path, model_name, model_type, expected_repo_nam
             
             print(f"Detected {num_images} images for task {task_id}", flush=True)
             
-            # If dataset is small (<= 12 images), set dropout to 0.01
+            # If it's a person task (not is_style), always set dropout to 0.005
+            # Otherwise, if style dataset is small (<= 12 images), set dropout to 0.01
             # Otherwise use the value defined in config_mapping above
             network_args = []
             for arg in network_config["network_args"]:
-                if arg.startswith("dropout=") and num_images <= 12:
-                    network_args.append("dropout=0.01")
+                if arg.startswith("dropout="):
+                    if not is_style:
+                        network_args.append("dropout=0.005")
+                    elif num_images <= 12:
+                        network_args.append("dropout=0.01")
+                    else:
+                        network_args.append(arg)
                 else:
                     network_args.append(arg)
 
