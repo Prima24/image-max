@@ -259,9 +259,23 @@ def create_config(task_id, model_path, model_name, model_type, expected_repo_nam
             else:
                 network_config = config_mapping[network_config_person[model_name]]
 
+            # Count images to adjust dropout dynamically
+            num_images = 0
+            if os.path.exists(train_data_dir):
+                num_images = len([f for f in os.listdir(train_data_dir) if f.lower().endswith(('.png', '.jpg', '.jpeg', '.webp'))])
+            
+            # If dataset is small (<= 12 images), set dropout to 0.0
+            # Otherwise use the value defined in config_mapping above
+            network_args = []
+            for arg in network_config["network_args"]:
+                if arg.startswith("dropout=") and num_images <= 12:
+                    network_args.append("dropout=0.0")
+                else:
+                    network_args.append(arg)
+
             config["network_dim"] = network_config["network_dim"]
             config["network_alpha"] = network_config["network_alpha"]
-            config["network_args"] = network_config["network_args"]
+            config["network_args"] = network_args
 
         config_path = os.path.join(train_cst.IMAGE_CONTAINER_CONFIG_SAVE_PATH, f"{task_id}.toml")
         save_config_toml(config, config_path)
