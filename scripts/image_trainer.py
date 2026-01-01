@@ -262,7 +262,10 @@ def create_config(task_id, model_path, model_name, model_type, expected_repo_nam
             # Count images to adjust dropout dynamically
             num_images = 0
             if os.path.exists(train_data_dir):
-                num_images = len([f for f in os.listdir(train_data_dir) if f.lower().endswith(('.png', '.jpg', '.jpeg', '.webp'))])
+                for root, dirs, files in os.walk(train_data_dir):
+                    num_images += len([f for f in files if f.lower().endswith(('.png', '.jpg', '.jpeg', '.webp'))])
+            
+            print(f"Detected {num_images} images for task {task_id}", flush=True)
             
             # If dataset is small (<= 12 images), set dropout to 0.1
             # Otherwise use the value defined in config_mapping above
