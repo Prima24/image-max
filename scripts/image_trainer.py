@@ -264,12 +264,12 @@ def create_config(task_id, model_path, model_name, model_type, expected_repo_nam
             if os.path.exists(train_data_dir):
                 num_images = len([f for f in os.listdir(train_data_dir) if f.lower().endswith(('.png', '.jpg', '.jpeg', '.webp'))])
             
-            # If dataset is small (<= 12 images), set dropout to 0.0
+            # If dataset is small (<= 12 images), set dropout to 0.1
             # Otherwise use the value defined in config_mapping above
             network_args = []
             for arg in network_config["network_args"]:
                 if arg.startswith("dropout=") and num_images <= 12:
-                    network_args.append("dropout=0.0")
+                    network_args.append("dropout=0.1")
                 else:
                     network_args.append(arg)
 
