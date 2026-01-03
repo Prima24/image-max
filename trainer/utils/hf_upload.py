@@ -169,15 +169,29 @@ def main():
     if repo_subfolder:
         print(f"Uploading into subfolder: {repo_subfolder}", flush=True)
 
-    api.upload_folder(
-        repo_id=repo_id,
-        folder_path=local_folder,
-        path_in_repo=repo_subfolder if repo_subfolder else None,
-        commit_message=f"Upload task output {task_id}",
-        token=hf_token,
-    )
-
-    print(f"Uploaded successfully to https://huggingface.co/{repo_id}", flush=True)
+    max_retries = 5
+    for attempt in range(max_retries):
+        try:
+            print(f"Uploading files (Attempt {attempt + 1}/{max_retries})...", flush=True)
+            api.upload_folder(
+                repo_id=repo_id,
+                folder_path=local_folder,
+                path_in_repo=repo_subfolder if repo_subfolder else None,
+                commit_message=f"Upload task output {task_id}",
+                token=hf_token,
+            )
+            print(f"Uploaded successfully to https://huggingface.co/{repo_id}", flush=True)
+            break
+        except Exception as e:
+            print(f"Upload failed (Attempt {attempt + 1}/{max_retries}) with error: {e}", flush=True)
+            if attempt < max_retries - 1:
+                wait_time = (attempt + 1) * 5
+                print(f"Retrying in {wait_time} seconds...", flush=True)
+                import time
+                time.sleep(wait_time)
+            else:
+                print("Max retries reached. Upload failed.", flush=True)
+                raise e
 
     if wandb_token:
         try:
