@@ -151,98 +151,120 @@ def create_config(task_id, model_path, model_name, model_type, expected_repo_nam
 
         # Update config
         network_config_person = {
-            "stabilityai/stable-diffusion-xl-base-1.0": 235,
-            "Lykon/dreamshaper-xl-1-0": 235,
-            "Lykon/art-diffusion-xl-0.9": 235,
-            "SG161222/RealVisXL_V4.0": 467,
-            "stablediffusionapi/protovision-xl-v6.6": 235,
-            "stablediffusionapi/omnium-sdxl": 235,
-            "GraydientPlatformAPI/realism-engine2-xl": 235,
-            "GraydientPlatformAPI/albedobase2-xl": 467,
-            "KBlueLeaf/Kohaku-XL-Zeta": 235,
-            "John6666/hassaku-xl-illustrious-v10style-sdxl": 228,
-            "John6666/nova-anime-xl-pony-v5-sdxl": 235,
-            "cagliostrolab/animagine-xl-4.0": 699,
-            "dataautogpt3/CALAMITY": 235,
-            "dataautogpt3/ProteusSigma": 235,
-            "dataautogpt3/ProteusV0.5": 467,
-            "dataautogpt3/TempestV0.1": 456,
-            "ehristoforu/Visionix-alpha": 235,
-            "femboysLover/RealisticStockPhoto-fp16": 467,
-            "fluently/Fluently-XL-Final": 228,
-            "mann-e/Mann-E_Dreams": 456,
-            "misri/leosamsHelloworldXL_helloworldXL70": 235,
-            "misri/zavychromaxl_v90": 235,
-            "openart-custom/DynaVisionXL": 228,
-            "recoilme/colorfulxl": 228,
-            "zenless-lab/sdxl-aam-xl-anime-mix": 456,
-            "zenless-lab/sdxl-anima-pencil-xl-v5": 228,
-            "zenless-lab/sdxl-anything-xl": 228,
-            "zenless-lab/sdxl-blue-pencil-xl-v7": 467,
-            "Corcelio/mobius": 228,
-            "GHArt/Lah_Mysterious_SDXL_V4.0_xl_fp16": 235,
-            "OnomaAIResearch/Illustrious-xl-early-release-v0": 228
+            # ANIME & ILLUSTRATION (ID: 9)
+            "zenless-lab/sdxl-aam-xl-anime-mix": 9,
+            "John6666/nova-anime-xl-pony-v5-sdxl": 9,
+            "zenless-lab/sdxl-anima-pencil-xl-v5": 9,
+            "cagliostrolab/animagine-xl-4.0": 9,
+            "zenless-lab/sdxl-anything-xl": 9,
+            "OnomaAIResearch/Illustrious-xl-early-release-v0": 9,
+            "John6666/hassaku-xl-illustrious-v10style-sdxl": 9,
+            "KBlueLeaf/Kohaku-XL-Zeta": 9,
+            "zenless-lab/sdxl-blue-pencil-xl-v7": 9,
+
+            # PHOTOREALISTIC (ID: 69)
+            "misri/leosamsHelloworldXL_helloworldXL70": 69,
+            "GraydientPlatformAPI/albedobase2-xl": 69,
+            "femboysLover/RealisticStockPhoto-fp16": 69,
+            "ifmain/UltraReal_Fine-Tune": 69,
+            "GraydientPlatformAPI/realism-engine2-xl": 69,
+            "SG161222/RealVisXL_V4.0": 69,
+
+            # ARTISTIC / 2.5D / GENERALIST (ID: 99)
+            "dataautogpt3/CALAMITY": 99,
+            "recoilme/colorfulxl": 99,
+            "dataautogpt3/ProteusV0.5": 99,
+            "fluently/Fluently-XL-Final": 99,
+            "stabilityai/stable-diffusion-xl-base-1.0": 99,
+            "openart-custom/DynaVisionXL": 99,
+            "Lykon/dreamshaper-xl-1-0": 99,
+            "dataautogpt3/ProteusSigma": 99,
+            "mann-e/Mann-E_Dreams": 99,
+            "Corcelio/mobius": 99,
+            "ehristoforu/Visionix-alpha": 99,
+            "Lykon/art-diffusion-xl-0.9": 99,
+            "stablediffusionapi/omnium-sdxl": 99,
+            "GHArt/Lah_Mysterious_SDXL_V4.0_xl_fp16": 99,
+            "misri/zavychromaxl_v90": 99,
+            "stablediffusionapi/protovision-xl-v6.6": 99,
+            "dataautogpt3/TempestV0.1": 99,
+            "bghira/terminus-xl-velocity-v2": 99
         }
 
         network_config_style = {
-            "stabilityai/stable-diffusion-xl-base-1.0": 235,
-            "Lykon/dreamshaper-xl-1-0": 235,
-            "Lykon/art-diffusion-xl-0.9": 235,
-            "SG161222/RealVisXL_V4.0": 235,
-            "stablediffusionapi/protovision-xl-v6.6": 235,
-            "stablediffusionapi/omnium-sdxl": 235,
-            "GraydientPlatformAPI/realism-engine2-xl": 235,
-            "GraydientPlatformAPI/albedobase2-xl": 235,
-            "KBlueLeaf/Kohaku-XL-Zeta": 235,
-            "John6666/hassaku-xl-illustrious-v10style-sdxl": 235,
-            "John6666/nova-anime-xl-pony-v5-sdxl": 235,
-            "cagliostrolab/animagine-xl-4.0": 235,
-            "dataautogpt3/CALAMITY": 235,
-            "dataautogpt3/ProteusSigma": 235,
-            "dataautogpt3/ProteusV0.5": 235,
-            "dataautogpt3/TempestV0.1": 228,
-            "ehristoforu/Visionix-alpha": 235,
-            "femboysLover/RealisticStockPhoto-fp16": 235,
-            "fluently/Fluently-XL-Final": 235,
-            "mann-e/Mann-E_Dreams": 235,
-            "misri/leosamsHelloworldXL_helloworldXL70": 235,
-            "misri/zavychromaxl_v90": 235,
-            "openart-custom/DynaVisionXL": 235,
-            "recoilme/colorfulxl": 235,
-            "zenless-lab/sdxl-aam-xl-anime-mix": 235,
-            "zenless-lab/sdxl-anima-pencil-xl-v5": 235,
-            "zenless-lab/sdxl-anything-xl": 235,
-            "zenless-lab/sdxl-blue-pencil-xl-v7": 235,
-            "Corcelio/mobius": 235,
-            "GHArt/Lah_Mysterious_SDXL_V4.0_xl_fp16": 235,
-            "OnomaAIResearch/Illustrious-xl-early-release-v0": 235
+           # ANIME & ILLUSTRATION (ID: 8) - Same models, different ID for Style tasks
+            "zenless-lab/sdxl-aam-xl-anime-mix": 8,
+            "John6666/nova-anime-xl-pony-v5-sdxl": 8,
+            "zenless-lab/sdxl-anima-pencil-xl-v5": 8,
+            "cagliostrolab/animagine-xl-4.0": 8,
+            "zenless-lab/sdxl-anything-xl": 8,
+            "OnomaAIResearch/Illustrious-xl-early-release-v0": 8,
+            "John6666/hassaku-xl-illustrious-v10style-sdxl": 8,
+            "KBlueLeaf/Kohaku-XL-Zeta": 8,
+            "zenless-lab/sdxl-blue-pencil-xl-v7": 8,
+
+            # PHOTOREALISTIC (ID: 78)
+            "misri/leosamsHelloworldXL_helloworldXL70": 78,
+            "GraydientPlatformAPI/albedobase2-xl": 78,
+            "femboysLover/RealisticStockPhoto-fp16": 78,
+            "ifmain/UltraReal_Fine-Tune": 78,
+            "GraydientPlatformAPI/realism-engine2-xl": 78,
+            "SG161222/RealVisXL_V4.0": 78,
+
+            # ARTISTIC / 2.5D / GENERALIST (ID: 118)
+            "dataautogpt3/CALAMITY": 118,
+            "recoilme/colorfulxl": 118,
+            "dataautogpt3/ProteusV0.5": 118,
+            "fluently/Fluently-XL-Final": 118,
+            "stabilityai/stable-diffusion-xl-base-1.0": 118,
+            "openart-custom/DynaVisionXL": 118,
+            "Lykon/dreamshaper-xl-1-0": 118,
+            "dataautogpt3/ProteusSigma": 118,
+            "mann-e/Mann-E_Dreams": 118,
+            "Corcelio/mobius": 118,
+            "ehristoforu/Visionix-alpha": 118,
+            "Lykon/art-diffusion-xl-0.9": 118,
+            "stablediffusionapi/omnium-sdxl": 118,
+            "GHArt/Lah_Mysterious_SDXL_V4.0_xl_fp16": 118,
+            "misri/zavychromaxl_v90": 118,
+            "stablediffusionapi/protovision-xl-v6.6": 118,
+            "dataautogpt3/TempestV0.1": 118,
+            "bghira/terminus-xl-velocity-v2": 118
         }
 
-        config_mapping = {
-            228: {
+        config_mapping_person = {
+            9: {
+                "network_dim": 128,
+                "network_alpha": 64,
+                "network_args": ["conv_dim=16", "conv_alpha=8", "dropout=0.005"]
+            },
+            69: {
+                "network_dim": 128,
+                "network_alpha": 64,
+                "network_args": ["conv_dim=16", "conv_alpha=8", "dropout=0.005"]
+            },
+            99: {
                 "network_dim": 64,
                 "network_alpha": 32,
-                "network_args": ["conv_dim=8", "conv_alpha=4", "dropout=0.1"]
+                "network_args": ["conv_dim=8", "conv_alpha=4", "dropout=0.005"]
             },
-            235: {
-                "network_dim": 128,
-                "network_alpha": 64,
-                "network_args": ["conv_dim=16", "conv_alpha=8", "dropout=0.1"]
-            },
-            456: {
-                "network_dim": 128,
-                "network_alpha": 64,
-                "network_args": ["conv_dim=16", "conv_alpha=8", "dropout=0.1"]
-            },
-            467: {
-                "network_dim": 128,
-                "network_alpha": 64,
-                "network_args": ["conv_dim=16", "conv_alpha=8", "dropout=0.1"]
-            },
-            699: {
+        }
+
+        config_mapping_style = {
+            8: {
                 "network_dim": 192,
                 "network_alpha": 96,
                 "network_args": ["conv_dim=32", "conv_alpha=16", "dropout=0.1"]
+            },
+            78: {
+                "network_dim": 128,
+                "network_alpha": 64,
+                "network_args": ["conv_dim=16", "conv_alpha=8", "dropout=0.1"]
+            },
+            118: {
+                "network_dim": 128,
+                "network_alpha": 64,
+                "network_args": ["conv_dim=16", "conv_alpha=8", "dropout=0.1"]
             },
         }
 
@@ -255,9 +277,9 @@ def create_config(task_id, model_path, model_name, model_type, expected_repo_nam
 
         if model_type == "sdxl":
             if is_style:
-                network_config = config_mapping[network_config_style[model_name]]
+                network_config = config_mapping_style[network_config_style[model_name]]
             else:
-                network_config = config_mapping[network_config_person[model_name]]
+                network_config = config_mapping_person[network_config_person[model_name]]
 
             # Count images to adjust dropout dynamically
             num_images = 0
@@ -267,24 +289,9 @@ def create_config(task_id, model_path, model_name, model_type, expected_repo_nam
             
             print(f"Detected {num_images} images for task {task_id}", flush=True)
             
-            # If it's a person task (not is_style), always set dropout to 0.005
-            # Otherwise, if style dataset is small (<= 12 images), set dropout to 0.01
-            # Otherwise use the value defined in config_mapping above
-            network_args = []
-            for arg in network_config["network_args"]:
-                if arg.startswith("dropout="):
-                    if not is_style:
-                        network_args.append("dropout=0.005")
-                    elif num_images <= 12:
-                        network_args.append("dropout=0.01")
-                    else:
-                        network_args.append(arg)
-                else:
-                    network_args.append(arg)
-
             config["network_dim"] = network_config["network_dim"]
             config["network_alpha"] = network_config["network_alpha"]
-            config["network_args"] = network_args
+            config["network_args"] = network_config["network_args"]
 
         config_path = os.path.join(train_cst.IMAGE_CONTAINER_CONFIG_SAVE_PATH, f"{task_id}.toml")
         save_config_toml(config, config_path)
