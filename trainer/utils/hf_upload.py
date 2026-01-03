@@ -4,6 +4,7 @@ import os
 import re
 import shutil
 import subprocess
+import sys
 
 import wandb
 from huggingface_hub import HfApi
@@ -148,7 +149,13 @@ def main():
         import hf_transfer
         print("Success: hf_transfer package is available! Turbo mode enabled.", flush=True)
     except ImportError:
-        print("Warning: hf_transfer package NOT found. Upload will be slower (standard mode).", flush=True)
+        print("hf_transfer not found. Attempting to install...", flush=True)
+        try:
+            subprocess.check_call([sys.executable, "-m", "pip", "install", "hf_transfer"])
+            import hf_transfer
+            print("Successfully installed hf_transfer! Turbo mode enabled.", flush=True)
+        except Exception as e:
+            print(f"Failed to install hf_transfer: {e}. Fallback to standard mode.", flush=True)
     
     # Calculate and print file size
     total_size = 0
