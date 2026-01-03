@@ -20,7 +20,7 @@ chmod 700 "$OUTPUTS_DIR"
 echo "Downloading model and dataset..."
 docker run --rm \
   --volume "$CHECKPOINTS_DIR:/cache:rw" \
-  --volume "$(pwd)/../core:/app/core:rw" \
+  --volume "$(pwd)/../scripts/core:/app/core:rw" \
   --volume "$(pwd)/../trainer:/app/trainer:rw" \
   --name downloader-image \
   trainer-downloader \
