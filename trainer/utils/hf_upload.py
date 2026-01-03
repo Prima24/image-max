@@ -142,6 +142,19 @@ def main():
     if repo_subfolder:
         repo_subfolder = repo_subfolder.strip("/")
 
+    # Enable faster transfer if available
+    os.environ["HF_HUB_ENABLE_HF_TRANSFER"] = "1"
+    
+    # Calculate and print file size
+    total_size = 0
+    for dirpath, dirnames, filenames in os.walk(local_folder):
+        for f in filenames:
+            fp = os.path.join(dirpath, f)
+            if not os.path.islink(fp):
+                total_size += os.path.getsize(fp)
+    
+    print(f"Total size to upload: {total_size / (1024*1024):.2f} MB", flush=True)
+
     if not all([hf_token, hf_user, task_id, repo_name]):
         raise RuntimeError("Missing one or more required environment variables")
 
