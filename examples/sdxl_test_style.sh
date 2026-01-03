@@ -18,7 +18,16 @@ mkdir -p "$OUTPUTS_DIR"
 chmod 700 "$OUTPUTS_DIR"
 
 echo "Downloading model and dataset..."
-docker run --rm   --volume "$CHECKPOINTS_DIR:/cache:rw"   --name downloader-image   trainer-downloader   --task-id "$TASK_ID"   --model "$MODEL"   --dataset "$DATASET_ZIP"   --task-type "ImageTask"
+docker run --rm \
+  --volume "$CHECKPOINTS_DIR:/cache:rw" \
+  --volume "$(pwd)/../core:/app/core:rw" \
+  --volume "$(pwd)/../trainer:/app/trainer:rw" \
+  --name downloader-image \
+  trainer-downloader \
+  --task-id "$TASK_ID" \
+  --model "$MODEL" \
+  --dataset "$DATASET_ZIP" \
+  --task-type "ImageTask"
 
 echo "Starting image training..."
 docker run --rm --gpus all   --security-opt=no-new-privileges   --cap-drop=ALL   --memory=32g   --cpus=8   --network none   --env TRANSFORMERS_CACHE=/cache/hf_cache   --volume "$CHECKPOINTS_DIR:/cache:rw"   --volume "$OUTPUTS_DIR:/app/checkpoints/:rw"   --name image-trainer-example   standalone-image-trainer   --task-id "$TASK_ID"   --model "$MODEL"   --dataset-zip "$DATASET_ZIP"   --model-type "$MODEL_TYPE"   --expected-repo-name "$EXPECTED_REPO_NAME"   --hours-to-complete 1
