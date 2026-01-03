@@ -144,6 +144,11 @@ def main():
 
     # Enable faster transfer if available
     os.environ["HF_HUB_ENABLE_HF_TRANSFER"] = "1"
+    try:
+        import hf_transfer
+        print("Success: hf_transfer package is available! Turbo mode enabled.", flush=True)
+    except ImportError:
+        print("Warning: hf_transfer package NOT found. Upload will be slower (standard mode).", flush=True)
     
     # Calculate and print file size
     total_size = 0
@@ -153,7 +158,11 @@ def main():
             if not os.path.islink(fp):
                 total_size += os.path.getsize(fp)
     
-    print(f"Total size to upload: {total_size / (1024*1024):.2f} MB", flush=True)
+    size_mb = total_size / (1024*1024)
+    print(f"Total size to upload: {size_mb:.2f} MB", flush=True)
+    
+    if size_mb > 1000:
+        print("Note: Dataset is > 1GB. Please ensure meaningful timeout or stable connection.", flush=True)
 
     if not all([hf_token, hf_user, task_id, repo_name]):
         raise RuntimeError("Missing one or more required environment variables")
