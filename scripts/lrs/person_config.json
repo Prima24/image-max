@@ -78,9 +78,9 @@
             "max_train_epochs": 4
         },
         "e7d0cc3356bd946337fb5e22fcff6132c7eb363abded9d32a99e42145a90309f": {
-            "prior_loss_weight": 0.5,
-            "max_train_epochs": 6,
-            "train_batch_size": 6,
+            "prior_loss_weight": 1,
+            "max_train_epochs": 4,
+            "train_batch_size": 2,
             "optimizer_args": ["decouple=True", "d0=0.0001", "weight_decay=0.005", "use_bias_correction=True", "safeguard_warmup=True"]
         },
         "2b2d23c68c5429f8108bb6f80e20cc08bbed1d3210bbba21bd674a767e2695b1": {
