@@ -1,8 +1,8 @@
 #!/bin/bash
 
-TASK_ID="a99f887d-dac1-48aa-883c-78d298b800b4"
-MODEL="dataautogpt3/CALAMITY"
-DATASET_ZIP="https://gradients.s3.eu-north-1.amazonaws.com/59ddb9abbf4a4348_train_data.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVVZOOA7SA4UOFLPI%2F20251221%2Feu-north-1%2Fs3%2Faws4_request&X-Amz-Date=20251221T014637Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=c5f120d9ad4c5e04843cc6578f0dc4f8ca6b6abc98fc1c9cb9ce5d2bceb90874"
+TASK_ID="36973c8b-2736-4b9b-948d-5dd52fea019d"
+MODEL="dataautogpt3/TempestV0.1"
+DATASET_ZIP="https://s3.eu-central-003.backblazeb2.com/gradients-validator/a8e72136f9443bfa_train_data.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=00362e8d6b742200000000002%2F20260109%2Feu-central-003%2Fs3%2Faws4_request&X-Amz-Date=20260109T025829Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=06c20e7f6cde957b923ea317ef82a679511ebb6a08fab9e98115d89b9ff4880b"
 MODEL_TYPE="sdxl"
 EXPECTED_REPO_NAME="test_style-1"
 

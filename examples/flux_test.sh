@@ -1,8 +1,8 @@
 #!/bin/bash
 
-TASK_ID="af32bd1b-ef6e-47a3-a875-32cc932434a3"
+TASK_ID="5be13090-228f-4092-9b91-48a051277f6a"
 MODEL="mhnakif/fluxunchained-dev"
-DATASET_ZIP="https://gradients.s3.eu-north-1.amazonaws.com/88a183b11c36a018_train_data.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVVZOOA7SA4UOFLPI%2F20251221%2Feu-north-1%2Fs3%2Faws4_request&X-Amz-Date=20251221T220851Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=37becbbd98b4f2fd5cce61e7fa0a200a8747b6b407e2a93414f29f21ca7da2b7"
+DATASET_ZIP="https://s3.eu-central-003.backblazeb2.com/gradients-validator/b9bd22decf1d8699_train_data.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=00362e8d6b742200000000002%2F20260108%2Feu-central-003%2Fs3%2Faws4_request&X-Amz-Date=20260108T172445Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=1e7795af8806fef45fd5a49c78e333a8c9da01176b5fb40e745d19d7a35b14cc"
 MODEL_TYPE="flux"
 EXPECTED_REPO_NAME="test_flux-1"
 
