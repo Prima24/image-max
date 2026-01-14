@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-image-yoyo
+image-max   
 """
 
 import argparse
@@ -141,6 +141,15 @@ def create_config(task_id, model_path, model_name, model_type, expected_repo_nam
                     "loss_type",
                     "huber_c",
                     "huber_schedule",
+                    "optimizer_type",
+                    "network_dim",
+                    "network_alpha",
+                    "network_args",
+                    "lr_scheduler_args",
+                    "clip_skip",
+                    "caption_dropout_rate",
+                    "scale_weight_norms",
+                    "max_train_steps"
                 ]:
                     if optional_key in lrs_settings:
                         config[optional_key] = lrs_settings[optional_key]
